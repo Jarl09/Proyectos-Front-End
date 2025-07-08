@@ -1,0 +1,158 @@
+/* styles.css */
+
+/* Reset y configuración base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fffdf9;
+  color: #333;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #cc6600;
+}
+
+section {
+  padding: 3rem 1rem;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* ENCABEZADO */
+.hero {
+  background: linear-gradient(to right, #fff4e6, #ffe8d6);
+  padding: 4rem 2rem;
+  text-align: center;
+  border-bottom: 2px solid #e6d6c4;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: #cc6600;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #444;
+}
+
+.btn-whatsapp {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.9rem 1.8rem;
+  background-color: #25D366;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1ebe5b;
+  transform: scale(1.05);
+}
+
+/* PRODUCTOS */
+.catalogo {
+  background-color: #fff;
+}
+
+.productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.producto {
+  background-color: #ffffff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  padding-bottom: 1rem;
+  transition: transform 0.2s ease;
+  /* AOS se encarga de la animación */
+}
+
+.producto:hover {
+  transform: scale(1.03);
+}
+
+.producto img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.producto h3 {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.2rem;
+  color: #cc5500;
+}
+
+.producto p {
+  padding: 0 1rem;
+  font-size: 0.95rem;
+  color: #666;
+  min-height: 80px;
+}
+
+/* TESTIMONIOS */
+.testimonios {
+  background-color: #fdf6f0;
+}
+
+.testimonio {
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.testimonio::before {
+  content: "\201C";
+  font-size: 2rem;
+  color: #ccc;
+  display: block;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  color: #aaa;
+  background-color: #f9f3ee;
+  margin-top: 3rem;
+}
+
+/* ANIMACIONES */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
