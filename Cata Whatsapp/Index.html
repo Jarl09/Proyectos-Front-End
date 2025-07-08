@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo Express - WhatsApp</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Sección Hero -->
+  <section id="hero">
+    <h1>Catálogo Express</h1>
+    <p>Elige y pide por WhatsApp en un clic</p>
+  </section>
+
+  <!-- Sección Filtros -->
+  <section id="filtros">
+    <button class="filtro activo" data-categoria="todos">Todos</button>
+    <button class="filtro" data-categoria="nuevos">Nuevos</button>
+    <button class="filtro" data-categoria="ofertas">Ofertas</button>
+  </section>
+
+  <!-- Contenedor central -->
+  <div class="contenedor-productos">
+    <!-- Sección Productos -->
+    <section id="productos">
+
+      <article class="producto" data-categoria="nuevos">
+        <img src="img/producto1.jpg" alt="Producto 1">
+        <h2>Producto Destacado 1</h2>
+        <p class="precio">RD$ 1500</p>
+        <a href="https://wa.me/1234567890?text=Hola,%20quiero%20este%20producto" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+      </article>
+
+      <article class="producto" data-categoria="ofertas">
+        <img src="img/producto2.jpg" alt="Producto 2">
+        <h2>Producto Destacado 2</h2>
+        <p class="precio">RD$ 2000</p>
+        <a href="https://wa.me/1234567890?text=Hola,%20quiero%20este%20producto" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+      </article>
+
+    </section>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
