@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carrusel de Imágenes</title>
+  <style>
+    /* Contenedor principal que oculta lo que está fuera */
+    .carrusel-container {
+      position: relative;
+      max-width: 320px;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      background: #fff;
+    }
+
+    /* Contenedor que contiene todas las imágenes en fila */
+    .carrusel {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      will-change: transform;
+      width: 100%; /* Será ajustado dinámicamente con JS */
+    }
+
+    /* Cada imagen debe tener ancho fijo igual al contenedor */
+    .carrusel img {
+      flex-shrink: 0;
+      width: 320px;
+      height: 200px;
+      object-fit: cover;
+      user-select: none;
+    }
+
+    /* Botones para navegar */
+    .carrusel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(30, 58, 138, 0.8);
+      border: none;
+      color: white;
+      font-size: 24px;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 6px;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+    .carrusel-btn:hover {
+      background-color: rgba(30, 58, 138, 1);
+    }
+    .carrusel-btn.prev {
+      left: 10px;
+    }
+    .carrusel-btn.next {
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="carrusel-container">
+    <button class="carrusel-btn prev" aria-label="Anterior">&#10094;</button>
+    <div class="carrusel">
+      <img src="https://picsum.photos/id/1018/320/200" alt="Imagen 1" />
+      <img src="https://picsum.photos/id/1015/320/200" alt="Imagen 2" />
+      <img src="https://picsum.photos/id/1019/320/200" alt="Imagen 3" />
+    </div>
+    <button class="carrusel-btn next" aria-label="Siguiente">&#10095;</button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const carruselContainer = document.querySelector('.carrusel-container');
+      const carrusel = carruselContainer.querySelector('.carrusel');
+      const imgs = carrusel.querySelectorAll('img');
+      const prevBtn = carruselContainer.querySelector('.carrusel-btn.prev');
+      const nextBtn = carruselContainer.querySelector('.carrusel-btn.next');
+      let idx = 0;
+
+      function updateCarrusel() {
+        const ancho = carruselContainer.clientWidth;
+        carrusel.style.width = `${imgs.length * ancho}px`;
+        imgs.forEach(img => img.style.width = `${ancho}px`);
+        carrusel.style.transform = `translateX(-${idx * ancho}px)`;
+      }
+
+      prevBtn.addEventListener('click', () => {
+        idx = (idx - 1 + imgs.length) % imgs.length;
+        updateCarrusel();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        idx = (idx + 1) % imgs.length;
+        updateCarrusel();
+      });
+
+      window.addEventListener('resize', updateCarrusel);
+
+      updateCarrusel();
+    });
+  </script>
+
+</body>
+</html>
